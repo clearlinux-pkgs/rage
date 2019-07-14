@@ -4,7 +4,7 @@
 #
 Name     : rage
 Version  : 0.3.0
-Release  : 1
+Release  : 2
 URL      : https://download.enlightenment.org/rel/apps/rage/rage-0.3.0.tar.xz
 Source0  : https://download.enlightenment.org/rel/apps/rage/rage-0.3.0.tar.xz
 Summary  : Video Player based on EFL
@@ -53,8 +53,9 @@ license components for the rage package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557719685
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1563115123
+export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
