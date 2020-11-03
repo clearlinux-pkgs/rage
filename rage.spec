@@ -4,10 +4,10 @@
 #
 Name     : rage
 Version  : 0.3.1
-Release  : 3
+Release  : 4
 URL      : https://download.enlightenment.org/rel/apps/rage/rage-0.3.1.tar.xz
 Source0  : https://download.enlightenment.org/rel/apps/rage/rage-0.3.1.tar.xz
-Summary  : Video Player based on EFL
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause
 Requires: rage-bin = %{version}-%{release}
@@ -48,25 +48,25 @@ license components for the rage package.
 
 %prep
 %setup -q -n rage-0.3.1
+cd %{_builddir}/rage-0.3.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567897849
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1604362866
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
 ninja -v -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/rage
-cp COPYING %{buildroot}/usr/share/package-licenses/rage/COPYING
+cp %{_builddir}/rage-0.3.1/COPYING %{buildroot}/usr/share/package-licenses/rage/e39e087903ee286cc96c6b3b0a0b234cd0458b24
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
@@ -85,4 +85,4 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/rage/COPYING
+/usr/share/package-licenses/rage/e39e087903ee286cc96c6b3b0a0b234cd0458b24
